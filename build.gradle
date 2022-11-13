@@ -10,6 +10,7 @@ sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -23,7 +24,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.12'
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
-
+    implementation 'com.github.Lazovski1991:jwt-parse-lib:2.0.2'
 }
 
 tasks.named('test') {

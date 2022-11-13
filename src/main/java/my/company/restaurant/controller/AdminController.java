@@ -1,7 +1,8 @@
 package my.company.restaurant.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import my.company.restaurant.dto.RestaurantRequestDTO;
+import my.company.restaurant.dto.RestaurantDTO;
 import my.company.restaurant.service.AdminService;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,18 +14,15 @@ import java.util.UUID;
 public class AdminController {
     private final AdminService adminService;
 
+    @Operation(summary = "add restaurant")
     @PostMapping("/add")
-    public void addRestaurant(@RequestBody RestaurantRequestDTO restaurantDTO) {
-
+    public void addRestaurant(@RequestBody RestaurantDTO restaurantDTO) {
+        adminService.add(restaurantDTO);
     }
 
+    @Operation(summary = "delete restaurant")
     @DeleteMapping("/delete/{id}")
     public void deleteRestaurant(@PathVariable UUID id) {
-
-    }
-
-    @PutMapping("/update")
-    public void updateRestaurant(@RequestBody RestaurantRequestDTO restaurantDTO) {
-
+        adminService.delete(id);
     }
 }

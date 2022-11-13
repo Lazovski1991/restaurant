@@ -23,9 +23,6 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "user_registration")
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Data
 @Accessors(chain = true)
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"}, ignoreUnknown = true)

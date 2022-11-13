@@ -27,7 +27,7 @@ public class AuthServiceImpl implements AuthService {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
             User user = userRepository.findByEmail(request.getEmail()).orElseThrow(() -> new AuthException("User doesn't exist"));
-            return jwtBuilder.createTokens(request.getEmail(), user.getRole().name());
+            return jwtBuilder.createTokens(request.getEmail(), user.getRole().name(), user.getId());
         } catch (AuthenticationException e) {
             throw new AuthException("Error authentication");
         }

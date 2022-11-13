@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: general-service
+    name: restaurant
   jpa:
     hibernate:
       ddl-auto: update
@@ -27,3 +27,6 @@ jwt:
   header: Authorization
   secret: secret
   expiration: 1000000
+  parse:
+    service:
+      secret-key: secret
